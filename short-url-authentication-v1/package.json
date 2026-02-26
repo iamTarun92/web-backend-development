@@ -1,0 +1,25 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "Design a URL shortener service that takes in a valid URL and returns a shortened URL, redirecting the user to the previously provided URL. Also, keep track of total visits/clicks on the URL.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "video": {
+    "source": "https://www.youtube.com/watch?v=4WvX9dBjiJo&list=PLinedj3B30sDby4Al-i13hQJGQoRQDfPo&index=21",
+    "title": "Node.js, Express & MongoDB - Full Course"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.1",
+    "nanoid": "^5.0.7",
+    "nodemon": "^3.1.9"
+  }
+}

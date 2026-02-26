@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5">URL Shortener</h1>
+      <form action="/url" method="POST">
+        <label for="redirectUrl">Enter URL to shorten:</label>
+        <!-- name attributte value will go to SSR -->
+        <input
+          type="text"
+          id="redirectUrl"
+          name="redirectUrl"
+          required
+          placeholder="https://www.example.com"
+        />
+        <button type="submit">Generate</button>
+      </form>
+      <% if (locals.urls.length){ %>
+      <table class="mt-5 table table-striped">
+        <thead>
+          <tr>
+            <th>Clicks</th>
+            <th>Short ID</th>
+            <th>Redirect URL</th>
+            <th>Get Analytics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% urls.forEach((url,index)=>{ %>
+          <tr>
+            <td><%= url.visitHistory.length %></td>
+            <td>
+              <a href="<%= 'url/' + url.shortId %>"><%= url.shortId %></a>
+            </td>
+            <td><%= url.redirectUrl %></td>
+            <td><a href="<%= 'url/analytics/' + url.shortId %>">GET</a></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <% } %> <% if (!locals.urls.length){ %>
+      <h3 class="mt-2 text-primary">No data found.</h3>
+      <% } %>
+    </div>
+  </body>
+</html>
