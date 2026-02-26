@@ -1,0 +1,3 @@
+- npm init -y
+- npm i express mongoose nodemon nanoid
+- Generate fake data from https://www.mockaroo.com/
