@@ -1,5 +1,5 @@
 {
-  "name": "note_api",
+  "name": "note app",
   "version": "1.0.0",
   "description": "A simple API for managing notes, built with Node.js and Express.",
   "main": "index.js",
