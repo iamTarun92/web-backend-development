@@ -1,0 +1,21 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "It's express server for serving static files and handling API requests.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "video": {
+    "source": "https://www.youtube.com/playlist?list=PLinedj3B30sDby4Al-i13hQJGQoRQDfPo",
+    "title": "Node.js, Express & MongoDB - Full Course"
+  },
+  "keywords": [],
+  "author": "Tarun Pandey",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.14"
+  }
+}

@@ -1,0 +1,4 @@
+- npm init -y
+- npm i express nodemon
+- Generate fake data from https://www.mockaroo.com/
+- Add middleware express.urlencoded (Allows to read data sent from HTML forms)
