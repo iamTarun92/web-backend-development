@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>URL Shortener</title>
+    <!-- <link rel="stylesheet" href="/style.css" /> -->
+  </head>
+  <body>
+    <h1>URL Shortener</h1>
+    <form action="/url/shorten" method="POST">
+      <label for="longUrl">Enter URL to shorten:</label>
+      <input
+        type="text"
+        id="longUrl"
+        name="longUrl"
+        required
+        placeholder="https://www.example.com"
+      />
+      <button type="submit">Genterate</button>
+    </form>
+  </body>
+</html>

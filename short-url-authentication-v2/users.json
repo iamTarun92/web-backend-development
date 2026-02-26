@@ -1,0 +1,68 @@
+[{
+  "_id": {
+    "$oid": "66684444b257d707791f3137"
+  },
+  "name": "user-1",
+  "email": "user-1@gmail.com",
+  "password": "$2b$10$ls8CRohp.QgAFzyK9ozXsuQC4aEgXBx31gUnz28ASAv/CetZlzTdm",
+  "role": "normal",
+  "createdAt": {
+    "$date": "2024-06-11T12:34:12.094Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-11T12:34:12.094Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6668a9eb6c7583499d6c9641"
+  },
+  "name": "user-2",
+  "email": "user-2@gmail.com",
+  "password": "$2b$10$ls8CRohp.QgAFzyK9ozXsuQC4aEgXBx31gUnz28ASAv/CetZlzTdm",
+  "role": "admin",
+  "createdAt": {
+    "$date": "2024-06-11T12:34:12.094Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-11T12:34:12.094Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666b548eac29eb814ca6a470"
+  },
+  "fullName": "user-3",
+  "email": "user-3@gmail.com",
+  "password": "12ebd3506cde633c96979677032711fc3dc95d7fa9cea2379cde566c146c4675",
+  "profileImageURL": "/images/default.png",
+  "role": "USER",
+  "createdAt": {
+    "$date": "2024-06-13T20:20:31.002Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-13T20:20:31.002Z"
+  },
+  "salt": "�D�nWrK��\u001de\u001d���",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666b55ceac29eb814ca6a489"
+  },
+  "fullName": "user-4",
+  "email": "user-4@gmail.com",
+  "password": "32c8d38c765cb8818e457ed6c5ae6e4ccc9741791313533feede171f9f1093dd",
+  "profileImageURL": "/images/default.png",
+  "role": "USER",
+  "createdAt": {
+    "$date": "2024-06-13T20:25:50.960Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-13T20:25:50.960Z"
+  },
+  "salt": "�̅S�&\u001dz��Nw~\u0005j�",
+  "__v": 0
+}]

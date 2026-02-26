@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <% if (locals.allURL.length){ %>
+    <table>
+      <thead>
+        <tr>
+          <th>Clicks</th>
+          <th>Short URL</th>
+          <th>Original URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% allURL.forEach((url,index)=>{ %>
+        <tr>
+          <td><%= url.visitHistory.length %></td>
+          <td><a href="<%= url.shortId %>"><%= url.shortId %></a></td>
+          <td><%= url.redirectUrl %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <% } %> <% if (!locals.allURL.length){ %>
+    <h3>No data found.</h3>
+    <% } %>
+
+    <a href="/">Shorten another URL</a>
+  </body>
+</html>
