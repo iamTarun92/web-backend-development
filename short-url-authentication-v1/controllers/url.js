@@ -1,6 +1,6 @@
 const URL = require('../models/url')
 
-async function handelGenerateShortUrl(req, res) {
+const handelGenerateShortUrl = async (req, res) => {
   const { redirectUrl } = req.body
 
   if (!redirectUrl) {
@@ -42,7 +42,12 @@ async function handelGenerateShortUrl(req, res) {
   }
 }
 
-async function handelRedirectShortUrl(req, res) {
+const handelGetAllUrl = async (req, res) => {
+  const allURL = await URL.find()
+  res.render('index', { urls: allURL })
+}
+
+const handelRedirectShortUrl = async (req, res) => {
   try {
     const { shortId } = req.params
 
@@ -68,7 +73,7 @@ async function handelRedirectShortUrl(req, res) {
   }
 }
 
-async function handelGetAnalytics(req, res) {
+const handelGetAnalytics = async (req, res) => {
   try {
     const { shortId } = req.params
     const result = await URL.findOne({ shortId })
@@ -90,6 +95,7 @@ async function handelGetAnalytics(req, res) {
 
 module.exports = {
   handelGenerateShortUrl,
+  handelGetAllUrl,
   handelRedirectShortUrl,
   handelGetAnalytics,
 }

@@ -6,6 +6,7 @@ const urlRoute = require('./routes/url')
 const staticRoute = require('./routes/staticRouter')
 const { configureMiddlewares, logReqRes } = require('./middleware')
 
+// Initialize Express app
 const app = express()
 const port = PORT || 8000
 
@@ -23,6 +24,7 @@ app.use(logReqRes('access.log'))
 app.use('/', staticRoute)
 app.use('/url', urlRoute)
 
+// Connect to MongoDB and start the server
 connectMongoDb(`mongodb://${HOSTNAME}:27017/${DB_NAME}`)
   .then(() => {
     console.log('Connected to MongoDB')
