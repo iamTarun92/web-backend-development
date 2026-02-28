@@ -1,20 +1,20 @@
 const URL = require('../models/url')
 
 const handelGenerateShortUrl = async (req, res) => {
-  const { redirectUrl } = req.body
+  const { url } = req.body
 
-  if (!redirectUrl) {
+  if (!url) {
     return res.status(400).json({ error: 'URL is required' })
   }
 
   // URL validation (using a simple regex for demonstration)
   const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/
-  if (!urlRegex.test(redirectUrl)) {
+  if (!urlRegex.test(url)) {
     return res.status(400).json({ error: 'Invalid URL format' })
   }
 
   try {
-    const existingEntry = await URL.findOne({ redirectUrl: redirectUrl })
+    const existingEntry = await URL.findOne({ redirectUrl: url })
 
     if (existingEntry) {
       return res.status(200).json({
@@ -30,7 +30,7 @@ const handelGenerateShortUrl = async (req, res) => {
     const newEntry = new URL({
       shortId,
       shortUrl,
-      redirectUrl,
+      redirectUrl: url,
       visitHistory: [],
     })
 

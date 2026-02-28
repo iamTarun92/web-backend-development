@@ -12,45 +12,44 @@
     <div class="container">
       <h1 class="mt-5">URL Shortener</h1>
       <form action="/url" method="POST">
-        <label for="redirectUrl">Enter URL to shorten:</label>
-        <!-- name attributte value will go to SSR -->
+        <label for="url">Enter URL to shorten:</label>
         <input
           type="text"
-          id="redirectUrl"
-          name="redirectUrl"
+          name="url"
           required
           placeholder="https://www.example.com"
         />
         <button type="submit">Generate</button>
       </form>
-      <% if (locals.urls.length){ %>
       <table class="mt-5 table table-striped">
         <thead>
           <tr>
-            <th>Id</th>
             <th>Clicks</th>
             <th>ShortId</th>
             <th>Redirect</th>
             <th>Analytics</th>
           </tr>
         </thead>
+        <% if (locals.urls.length){ %>
         <tbody>
           <% urls.forEach((url,index)=>{ %>
           <tr>
-            <td><%= index + 1 %></td>
             <td><%= url.visitHistory ? url.visitHistory.length : 0 %></td>
             <td>
-              <a href="<%= '/' + url.shortId %>"><%= url.shortId %></a>
+              <a href="<%= '/url/' + url.shortId %>"><%= url.shortId %></a>
             </td>
             <td><%= url.redirectUrl %></td>
             <td><a href="<%= 'url/analytics/' + url.shortId %>">GET</a></td>
           </tr>
           <% }) %>
         </tbody>
+        <% } %>
+         <% if (!locals.urls.length){ %>
+        <tbody>
+          <tr><td colspan="4">No data found.</td></tr>
+        </tbody>
+        <% } %>
       </table>
-      <% } %> <% if (!locals.urls.length){ %>
-      <h3 class="mt-2 text-primary">No data found.</h3>
-      <% } %>
     </div>
   </body>
 </html>
