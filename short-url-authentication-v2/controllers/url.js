@@ -4,10 +4,25 @@ async function handelGenerateShortUrl(req, res) {
   const { longUrl } = req.body
 
   if (!longUrl) {
-    return res.status(400).json({ error: 'url is required' })
+    return res.status(400).json({ error: 'URL is required' })
+  }
+
+  // URL validation (using a simple regex for demonstration)
+  const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/
+  if (!urlRegex.test(longUrl)) {
+    return res.status(400).json({ error: 'Invalid URL format' })
   }
 
   try {
+    const existingEntry = await URL.findOne({ redirectUrl: longUrl })
+
+    if (existingEntry) {
+      return res.status(200).json({
+        shortUrl: existingEntry.shortUrl,
+        error: 'URL already exists.',
+      })
+    }
+
     // Dynamically import nanoid
     const { nanoid } = await import('nanoid')
     const shortId = nanoid(10)
@@ -28,6 +43,11 @@ async function handelGenerateShortUrl(req, res) {
   }
 }
 
+async function handelGetAllUrl(req, res) {
+  const allURL = await URL.find({ createdBy: req.user._id })
+  res.render('urls', { allURL })
+}
+
 async function handelRedirectShortUrl(req, res) {
   try {
     const { shortId } = req.params
@@ -43,7 +63,7 @@ async function handelRedirectShortUrl(req, res) {
     )
 
     if (!entry) {
-      return res.status(404).json({ message: 'URL not found1.' })
+      return res.status(404).json({ message: 'URL not found.' })
     }
 
     return res.redirect(entry.redirectUrl)
@@ -64,9 +84,8 @@ async function handelGetAnalytics(req, res) {
     }
 
     return res.status(201).json({
-      message: 'Successed.',
       analytics: result.visitHistory,
-      totalclicks: result.visitHistory.length,
+      totalClicks: result.visitHistory.length,
     })
   } catch (error) {
     return res
@@ -77,6 +96,7 @@ async function handelGetAnalytics(req, res) {
 
 module.exports = {
   handelGenerateShortUrl,
+  handelGetAllUrl,
   handelRedirectShortUrl,
   handelGetAnalytics,
 }

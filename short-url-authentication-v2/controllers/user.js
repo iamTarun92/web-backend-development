@@ -11,7 +11,7 @@ async function handleUserSignup(req, res) {
       email,
       password: hashedPassword,
     })
-    return res.redirect('/login')
+    return res.render('index')
   } catch (error) {
     console.error('Signup error:', error)
     return res.status(500).send('Internal Server Error')
